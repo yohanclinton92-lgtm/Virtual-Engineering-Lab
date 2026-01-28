@@ -17,10 +17,10 @@ def login():
             st.session_state.logged_in = True
             st.session_state.username = u
             st.session_state.role = USERS[u]["role"]
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Invalid credentials")
 
 def logout():
     st.session_state.clear()
-    st.experimental_rerun()
+    st.rerun()
