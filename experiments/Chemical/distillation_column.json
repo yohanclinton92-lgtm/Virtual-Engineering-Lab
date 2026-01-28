@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "id": "CHE_MT_01",
+    "name": "Distillation Column",
+    "department": "Chemical Engineering",
+    "subject": "Mass Transfer Operations"
+  },
+
+  "theory": {
+    "aim": "To study the effect of reflux ratio on the performance of a distillation column.",
+
+    "description": "Distillation is a separation process based on differences in volatility of components in a mixture. The reflux ratio plays a significant role in determining the purity of the distillate and the number of stages required. This experiment demonstrates how increasing reflux improves separation efficiency at the cost of increased energy consumption.",
+
+    "procedure": [
+      "Feed the mixture into the distillation column.",
+      "Set the desired reflux ratio.",
+      "Allow the column to reach steady state.",
+      "Measure distillate composition.",
+      "Determine the number of theoretical and actual stages."
+    ],
+
+    "applications": [
+      "Petroleum refining",
+      "Alcohol and solvent production",
+      "Chemical separation processes",
+      "Pharmaceutical industries"
+    ]
+  },
+
+  "inputs": [
+    {
+      "key": "F",
+      "label": "Feed Rate (kmol/hr)",
+      "min": 50,
+      "max": 500
+    },
+    {
+      "key": "xF",
+      "label": "Feed Mole Fraction",
+      "min": 0.1,
+      "max": 0.9
+    },
+    {
+      "key": "R",
+      "label": "Reflux Ratio",
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "eff_stage",
+      "label": "Stage Efficiency",
+      "min": 0.5,
+      "max": 0.9
+    }
+  ],
+
+  "calculations": [
+    "xD = xF + 0.1 * R",
+    "xD = min(xD, 0.99)",
+    "N_theoretical = 5 + 2 * R",
+    "N_actual = N_theoretical / eff_stage"
+  ],
+
+  "diagnostics": [
+    {
+      "condition": "xD < 0.85",
+      "message": "Low distillate purity. Increase reflux ratio."
+    },
+    {
+      "condition": "xD >= 0.85 and xD < 0.95",
+      "message": "Moderate distillate purity achieved."
+    },
+    {
+      "condition": "xD >= 0.95",
+      "message": "High distillate purity achieved."
+    }
+  ],
+
+  "outputs": [
+    "xD",
+    "N_theoretical",
+    "N_actual"
+  ],
+
+  "viva": [
+    "What is reflux ratio?",
+    "Why does increasing reflux improve separation?",
+    "What is stage efficiency?"
+  ]
+}

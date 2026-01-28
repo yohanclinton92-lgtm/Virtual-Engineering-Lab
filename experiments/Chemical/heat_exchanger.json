@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "id": "CHE_HT_01",
+    "name": "Heat Exchanger",
+    "department": "Chemical Engineering",
+    "subject": "Heat Transfer"
+  },
+
+  "theory": {
+    "aim": "To study the effect of flow pattern on the performance of a heat exchanger.",
+
+    "description": "A heat exchanger is a device used to transfer heat between two fluids at different temperatures without mixing them. The performance depends strongly on the flow arrangement. In co-current flow, both fluids move in the same direction. In counter-current flow, fluids move in opposite directions. Counter-current flow generally gives higher effectiveness.",
+
+    "procedure": [
+      "Select the flow arrangement (co-current or counter-current).",
+      "Supply hot and cold fluids to the heat exchanger.",
+      "Measure inlet temperatures of hot and cold fluids.",
+      "Allow the system to reach steady state.",
+      "Measure outlet temperatures.",
+      "Calculate the effectiveness of the heat exchanger."
+    ],
+
+    "applications": [
+      "Power plants and boilers",
+      "Chemical reactors temperature control",
+      "Heat recovery systems",
+      "Process industries"
+    ]
+  },
+
+  "inputs": [
+    {
+      "key": "flow_pattern",
+      "label": "Flow Pattern",
+      "type": "choice",
+      "options": ["Co-current", "Counter-current"]
+    },
+    {
+      "key": "Th_in",
+      "label": "Hot Fluid Inlet Temperature (C)",
+      "min": 60,
+      "max": 120
+    },
+    {
+      "key": "Tc_in",
+      "label": "Cold Fluid Inlet Temperature (C)",
+      "min": 20,
+      "max": 50
+    },
+    {
+      "key": "m_dot",
+      "label": "Mass Flow Rate (kg per s)",
+      "min": 0.5,
+      "max": 5.0
+    }
+  ],
+
+  "calculations": [
+    "flow_factor = 0.8 if flow_pattern == 'Co-current' else 1.0",
+    "Th_out = Th_in - (5 * m_dot * flow_factor)",
+    "Tc_out = Tc_in + (4 * m_dot * flow_factor)",
+    "effectiveness = (Th_in - Th_out) / (Th_in - Tc_in)"
+  ],
+
+  "diagnostics": [
+    {
+      "condition": "flow_pattern == 'Co-current'",
+      "message": "Co-current flow generally results in lower effectiveness."
+    },
+    {
+      "condition": "flow_pattern == 'Counter-current'",
+      "message": "Counter-current flow provides higher heat transfer effectiveness."
+    }
+  ],
+
+  "outputs": [
+    "Th_out",
+    "Tc_out",
+    "effectiveness"
+  ],
+
+  "viva": [
+    "What is a heat exchanger?",
+    "Differentiate between co-current and counter-current flow.",
+    "Why is counter-current flow more efficient?",
+    "Define effectiveness of a heat exchanger."
+  ]
+}

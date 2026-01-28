@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "id": "CHE_RE_01",
+    "name": "Batch Reactor",
+    "department": "Chemical Engineering",
+    "subject": "Chemical Reaction Engineering"
+  },
+
+  "theory": {
+    "aim": "To study the conversion of a first-order reaction in a batch reactor.",
+
+    "description": "A batch reactor is a closed system in which reactants are charged, allowed to react for a certain period, and then discharged. For a first-order reaction, the rate of reaction is proportional to the concentration of the reactant. This experiment demonstrates the effect of reaction time and rate constant on conversion.",
+
+    "procedure": [
+      "Charge the reactant into the batch reactor.",
+      "Set the reaction temperature.",
+      "Allow the reaction to proceed for a fixed time.",
+      "Measure concentration of reactant.",
+      "Calculate conversion."
+    ],
+
+    "applications": [
+      "Pharmaceutical manufacturing",
+      "Polymer production",
+      "Fine chemical synthesis",
+      "Laboratory-scale reactions"
+    ]
+  },
+
+  "inputs": [
+    {
+      "key": "C0",
+      "label": "Initial Concentration (kmol/m³)",
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "k",
+      "label": "Rate Constant (1/hr)",
+      "min": 0.1,
+      "max": 2.0
+    },
+    {
+      "key": "t",
+      "label": "Reaction Time (hr)",
+      "min": 0.5,
+      "max": 10
+    }
+  ],
+
+  "calculations": [
+    "C = C0 * (2.718 ** (-k * t))",
+    "conversion = (C0 - C) / C0"
+  ],
+
+  "diagnostics": [
+    {
+      "condition": "conversion < 0.5",
+      "message": "Low conversion. Increase reaction time."
+    },
+    {
+      "condition": "conversion >= 0.5 and conversion < 0.8",
+      "message": "Moderate conversion achieved."
+    },
+    {
+      "condition": "conversion >= 0.8",
+      "message": "High conversion. Efficient reactor operation."
+    }
+  ],
+
+  "outputs": [
+    "C",
+    "conversion"
+  ],
+
+  "viva": [
+    "Define batch reactor.",
+    "What is a first-order reaction?",
+    "How does rate constant affect conversion?"
+  ]
+}

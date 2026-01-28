@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "id": "DS_VTU_3SEM_01",
+    "name": "Student Performance Analysis",
+    "department": "Data Science",
+    "subject": "Data Science Fundamentals (VTU 3rd Semester)"
+  },
+
+  "theory": {
+    "aim": "To analyze student academic performance using descriptive statistics.",
+    
+    "description": "This experiment helps students understand how raw academic data can be analyzed using basic statistical measures such as mean and percentage. The experiment is aligned with VTU 3rd semester Data Science syllabus and introduces students to data-driven decision making.",
+
+    "procedure": [
+      "Collect marks of a student in three subjects.",
+      "Calculate the average marks.",
+      "Convert the average into percentage.",
+      "Classify the result as Pass or Fail based on VTU criteria.",
+      "Interpret the performance level of the student."
+    ],
+
+    "applications": [
+      "Academic performance monitoring systems",
+      "Early identification of weak students",
+      "Education data analytics",
+      "Foundation for predictive analytics and machine learning"
+    ]
+  },
+
+  "inputs": [
+    {
+      "key": "marks_math",
+      "label": "Marks in Mathematics",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "key": "marks_ds",
+      "label": "Marks in Data Science",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "key": "marks_prog",
+      "label": "Marks in Programming",
+      "min": 0,
+      "max": 100
+    }
+  ],
+
+  "calculations": [
+    "average = (marks_math + marks_ds + marks_prog) / 3",
+    "percentage = average",
+    "result = 'Pass' if percentage >= 40 else 'Fail'"
+  ],
+
+  "diagnostics": [
+    {
+      "condition": "percentage < 40",
+      "message": "Poor performance. Student requires academic support."
+    },
+    {
+      "condition": "percentage >= 40 and percentage < 60",
+      "message": "Average performance. Improvement is possible."
+    },
+    {
+      "condition": "percentage >= 60",
+      "message": "Good performance. Student is doing well."
+    }
+  ],
+
+  "outputs": [
+    "average",
+    "percentage",
+    "result"
+  ],
+
+  "viva": [
+    "What is descriptive statistics?",
+    "Why is mean used in data analysis?",
+    "How can this experiment be extended using machine learning?"
+  ]
+}
